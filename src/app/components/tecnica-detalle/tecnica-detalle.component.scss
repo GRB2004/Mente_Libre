@@ -1,0 +1,238 @@
+// src/app/components/tecnica-detalle/tecnica-detalle.component.scss
+
+.detalle-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Crimson Text', serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+
+  .logo {
+    cursor: pointer;
+
+    img {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 1rem;
+
+    .nav-button {
+      background: transparent;
+      border: 2px solid #2d3748;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-family: 'Crimson Text', serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #2d3748;
+        color: white;
+      }
+    }
+  }
+}
+
+.main-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .btn-volver {
+    background: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-family: 'Crimson Text', serif;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px);
+    }
+  }
+
+  .titulo-principal {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .contenido-wrapper {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+
+    .texto-contenido {
+      .descripcion-larga {
+        font-size: 1.2rem;
+        color: #4a5568;
+        line-height: 1.8;
+        text-align: justify;
+      }
+    }
+
+    .imagen-contenido {
+      background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
+      border-radius: 15px;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+    }
+  }
+
+  .navegacion {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    .tecnica-label {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .progress-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+
+      .dot {
+        width: 50px;
+        height: 12px;
+        background: #e2e8f0;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #cbd5e0;
+        }
+
+        &.active {
+          background: #2d5016;
+          transform: scaleX(1.2);
+        }
+
+        &.completed {
+          background: #4a7c2c;
+        }
+      }
+    }
+
+    .botones-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+
+      .btn-nav {
+        background: transparent;
+        border: 2px solid #2d3748;
+        padding: 0.8rem 2.5rem;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-family: 'Crimson Text', serif;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover:not(:disabled) {
+          background: #2d3748;
+          color: white;
+        }
+
+        &:disabled {
+          opacity: 0.4;
+          cursor: not-allowed;
+        }
+
+        &.btn-siguiente {
+          background: #2d5016;
+          color: white;
+          border-color: #2d5016;
+
+          &:hover:not(:disabled) {
+            background: #3d6921;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+
+    .titulo-principal {
+      font-size: 1.8rem;
+    }
+
+    .contenido-wrapper {
+      grid-template-columns: 1fr;
+      padding: 2rem 1.5rem;
+      gap: 2rem;
+
+      .texto-contenido .descripcion-larga {
+        font-size: 1.1rem;
+        text-align: left;
+      }
+    }
+
+    .navegacion {
+      padding: 1.5rem;
+
+      .progress-dots .dot {
+        width: 30px;
+        height: 10px;
+      }
+
+      .botones-nav {
+        flex-direction: column;
+        gap: 1rem;
+
+        .btn-nav {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

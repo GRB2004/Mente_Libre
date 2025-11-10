@@ -1,0 +1,81 @@
+<!-- src/app/components/resultados/resultados.component.html -->
+
+<div class="resultados-container">
+  <header class="header">
+    <div class="logo" (click)="volverInicio()">
+      <img src="assets/logo.svg" alt="Mente Libre Logo">
+    </div>
+    <nav class="nav">
+      <button class="nav-button" (click)="volverInicio()">Inicio</button>
+      <button class="nav-button">Actividades</button>
+    </nav>
+  </header>
+
+  <main class="main-content" *ngIf="resultado">
+    <h1 class="title">Una Mente Libre, una facultad de computación mas sana</h1>
+
+    <div class="tabs">
+      <button
+        *ngFor="let tipo of tiposPorcentajes"
+        class="tab"
+        [class.active]="tipoSeleccionado === tipo.tipo"
+        (click)="seleccionarTipo(tipo.tipo)">
+        {{ tipo.tipo }}
+      </button>
+    </div>
+
+    <div class="resultado-info">
+      <div class="tipo-predominante" *ngIf="tipoSeleccionado === resultado.tipoPredominate">
+        <span class="badge">Tu estilo predominante</span>
+      </div>
+      <p class="descripcion">{{ descripcionesTipos[tipoSeleccionado] }}</p>
+      <div class="porcentajes">
+        <div *ngFor="let tipo of tiposPorcentajes" class="porcentaje-item">
+          <span class="tipo-label">{{ tipo.tipo }}</span>
+          <div class="porcentaje-bar">
+            <div class="porcentaje-fill" [style.width.%]="tipo.porcentaje"></div>
+          </div>
+          <span class="porcentaje-valor">{{ tipo.porcentaje }}%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tecnicas-grid">
+      <div
+        *ngFor="let tecnica of tecnicas"
+        class="tecnica-card"
+        (click)="verDetalleTecnica(tecnica)">
+        <div class="brain-icon">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Cerebro -->
+            <ellipse cx="100" cy="90" rx="60" ry="50" fill="#718096" opacity="0.8"/>
+            <path d="M 60 80 Q 70 65 80 80" fill="none" stroke="#4a5568" stroke-width="2"/>
+            <path d="M 70 95 Q 80 80 90 95" fill="none" stroke="#4a5568" stroke-width="2"/>
+            <path d="M 80 110 Q 90 95 100 110" fill="none" stroke="#4a5568" stroke-width="2"/>
+            <path d="M 120 80 Q 110 65 100 80" fill="none" stroke="#4a5568" stroke-width="2"/>
+            <path d="M 130 95 Q 120 80 110 95" fill="none" stroke="#4a5568" stroke-width="2"/>
+            <path d="M 120 110 Q 110 95 100 110" fill="none" stroke="#4a5568" stroke-width="2"/>
+
+            <!-- Bombilla -->
+            <circle cx="155" cy="55" r="18" fill="#4299e1" opacity="0.9"/>
+            <path d="M 150 73 L 150 80 L 160 80 L 160 73" fill="#4299e1" opacity="0.7"/>
+            <line x1="155" y1="80" x2="155" y2="85" stroke="#4299e1" stroke-width="2"/>
+            <line x1="152" y1="85" x2="158" y2="85" stroke="#4299e1" stroke-width="2"/>
+
+            <!-- Rayos de luz -->
+            <line x1="140" y1="45" x2="135" y2="40" stroke="#4299e1" stroke-width="2" opacity="0.6"/>
+            <line x1="145" y1="35" x2="145" y2="28" stroke="#4299e1" stroke-width="2" opacity="0.6"/>
+            <line x1="165" y1="35" x2="165" y2="28" stroke="#4299e1" stroke-width="2" opacity="0.6"/>
+            <line x1="170" y1="45" x2="175" y2="40" stroke="#4299e1" stroke-width="2" opacity="0.6"/>
+
+            <!-- Pieza de puzzle -->
+            <path d="M 40 140 L 40 120 Q 40 115 45 115 Q 50 115 50 120 L 50 140 Q 50 145 55 145 Q 60 145 60 140 L 60 120 L 75 120 L 75 155 L 40 155 Z"
+                  fill="#4299e1" opacity="0.8"/>
+          </svg>
+        </div>
+        <h3 class="tecnica-titulo">{{ tecnica.titulo }}</h3>
+        <p class="tecnica-descripcion">{{ tecnica.descripcion }}</p>
+      </div>
+    </div>
+  </main>
+</div>

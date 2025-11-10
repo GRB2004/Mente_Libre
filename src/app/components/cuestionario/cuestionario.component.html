@@ -1,0 +1,56 @@
+<!-- src/app/components/cuestionario/cuestionario.component.html -->
+
+<div class="cuestionario-container">
+  <header class="header">
+    <div class="logo" (click)="volverInicio()">
+      <img src="assets/logo.svg" alt="Mente Libre Logo">
+    </div>
+    <nav class="nav">
+      <button class="nav-button" (click)="volverInicio()">Inicio</button>
+      <button class="nav-button">Actividades</button>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="progreso"></div>
+      </div>
+      <span class="progress-text">Pregunta {{ preguntaActual + 1 }} de {{ preguntas.length }}</span>
+    </div>
+
+    <div class="pregunta-card" *ngIf="preguntas.length > 0">
+      <div class="pregunta-numero">{{ preguntaActual + 1 }}</div>
+
+      <h2 class="pregunta-texto">{{ preguntas[preguntaActual].texto }}</h2>
+
+      <div class="opciones">
+        <div
+          *ngFor="let opcion of preguntas[preguntaActual].opciones; let i = index"
+          class="opcion"
+          [class.seleccionada]="respuestaSeleccionada === opcion.tipo"
+          (click)="seleccionarRespuesta(opcion.tipo)">
+          <div class="radio-button">
+            <div class="radio-inner" *ngIf="respuestaSeleccionada === opcion.tipo"></div>
+          </div>
+          <span class="opcion-texto">{{ opcion.texto }}</span>
+        </div>
+      </div>
+
+      <div class="botones">
+        <button
+          class="btn-secundario"
+          (click)="anteriorPregunta()"
+          [disabled]="preguntaActual === 0">
+          Anterior
+        </button>
+        <button
+          class="btn-primario"
+          (click)="siguientePregunta()"
+          [disabled]="!respuestaSeleccionada">
+          {{ preguntaActual === preguntas.length - 1 ? 'Finalizar' : 'Siguiente' }}
+        </button>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,230 @@
+// src/app/components/cuestionario/cuestionario.component.scss
+
+.cuestionario-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Crimson Text', serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+
+  .logo {
+    cursor: pointer;
+
+    img {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 1rem;
+
+    .nav-button {
+      background: transparent;
+      border: 2px solid #2d3748;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-family: 'Crimson Text', serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #2d3748;
+        color: white;
+      }
+    }
+  }
+}
+
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.progress-container {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2d5016, #4a7c2c);
+      transition: width 0.3s ease;
+    }
+  }
+
+  .progress-text {
+    font-size: 0.9rem;
+    color: #2d3748;
+    font-weight: 500;
+  }
+}
+
+.pregunta-card {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  .pregunta-numero {
+    display: inline-block;
+    background: #2d5016;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .pregunta-texto {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .opcion {
+      display: flex;
+      align-items: center;
+      padding: 1.2rem 1.5rem;
+      background: #f7fafc;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #edf2f7;
+        border-color: #cbd5e0;
+      }
+
+      &.seleccionada {
+        background: #e6f4ea;
+        border-color: #2d5016;
+      }
+
+      .radio-button {
+        width: 24px;
+        height: 24px;
+        border: 2px solid #cbd5e0;
+        border-radius: 50%;
+        margin-right: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+
+        .radio-inner {
+          width: 14px;
+          height: 14px;
+          background: #2d5016;
+          border-radius: 50%;
+        }
+      }
+
+      &.seleccionada .radio-button {
+        border-color: #2d5016;
+      }
+
+      .opcion-texto {
+        font-size: 1.1rem;
+        color: #2d3748;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .botones {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    button {
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-family: 'Crimson Text', serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-weight: 500;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    .btn-secundario {
+      background: #e2e8f0;
+      color: #2d3748;
+
+      &:hover:not(:disabled) {
+        background: #cbd5e0;
+      }
+    }
+
+    .btn-primario {
+      background: #2d5016;
+      color: white;
+
+      &:hover:not(:disabled) {
+        background: #3d6921;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pregunta-card {
+    padding: 2rem 1.5rem;
+
+    .pregunta-texto {
+      font-size: 1.4rem;
+    }
+
+    .botones {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
