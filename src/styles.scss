@@ -49,3 +49,23 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.tecnica-imagen {
+  margin: 2rem 0;
+  text-align: center;
+
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 100%;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}

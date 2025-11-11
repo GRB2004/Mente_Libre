@@ -235,89 +235,174 @@ export class EvaluacionService {
         id: 1,
         titulo: 'Mapas Mentales',
         tipo: 'Visual',
-        descripcion: 'Organiza información de manera visual usando colores, imágenes y conexiones.',
-        detalles: 'Los mapas mentales te ayudan a conectar ideas de forma visual. Comienza con un concepto central en el medio de la página y crea ramas con ideas relacionadas. Usa diferentes colores para categorías distintas, añade íconos o dibujos pequeños, y conecta conceptos relacionados con líneas. Esta técnica aprovecha tu capacidad de recordar imágenes y patrones visuales.'
+        descripcion: 'Diagrama visual que organiza pensamientos partiendo de una idea central con ramas radiantes.',
+        detalles: `<h3>¿Qué es un Mapa Mental?</h3>
+<p>Un mapa mental es un diagrama visual diseñado para organizar pensamientos e ideas. Funciona partiendo de un único concepto o idea central, desde el cual se "irradian" ramas con ideas y subtemas relacionados.</p>
+
+<h4>Características clave:</h4>
+<ul>
+<li><strong>Estructura Radial:</strong> A diferencia de las notas tradicionales que van de arriba hacia abajo, un mapa mental fluye desde el centro hacia afuera en todas las direcciones.</li>
+<li><strong>Jerarquía Visual:</strong> Muestra claramente la relación entre una idea principal (en el centro) y las ideas secundarias y terciarias (en las ramas).</li>
+<li><strong>Uso de Palabras Clave:</strong> Se enfoca en usar palabras clave o frases muy cortas en lugar de oraciones largas, lo que obliga a la concisión y facilita la memorización.</li>
+<li><strong>Herramienta Creativa:</strong> Fomenta la "lluvia de ideas" (brainstorming) y el pensamiento asociativo, ya que permite conectar ideas libremente sin las restricciones de un esquema rígido.</li>
+</ul>
+
+<p>Los mapas mentales son útiles para una variedad de propósitos, como la toma de notas, la planificación de proyectos, la resolución de problemas y la preparación de presentaciones, ya que ayudan a simplificar y comunicar información compleja.</p>
+
+<div class="tecnica-imagen">
+<img src="assets/mapa_mental.jpg" alt="Ejemplo de Mapa Mental">
+</div>
+
+<h3>¿Cómo Crear un Mapa Mental? (Paso a Paso)</h3>
+<ol>
+<li><strong>Empezar con la Idea Central:</strong> Identifica el concepto principal o tema central que quieres explorar. Escríbelo (o dibújalo) justo en el centro de tu página o lienzo digital. Enciérralo en un círculo para destacarlo como el punto de partida.</li>
+
+<li><strong>Añadir las Ramas Principales (Subtemas):</strong> A partir de la idea central, dibuja varias líneas o "ramas" que irradien hacia afuera. Cada una representa un subtema o categoría clave directamente relacionada con tu concepto central. Escribe una palabra clave o frase corta sobre cada rama.</li>
+
+<li><strong>Expandir con Ramas Secundarias (Detalles):</strong> De tus ramas principales, añade ramas más pequeñas (secundarias) para desglosar la información. Estas ramas contienen detalles más específicos.</li>
+
+<li><strong>Usar Elementos Visuales (Colores e Imágenes):</strong> Usa diferentes colores para distintas ramas principales (por ejemplo, todo lo relacionado con "Marketing" en azul, todo lo de "Desarrollo" en verde). Esto ayuda al cerebro a agrupar y diferenciar la información visualmente. También añade íconos o imágenes pequeñas junto a las palabras clave para reforzar el significado.</li>
+
+<li><strong>Iterar y Reorganizar:</strong> La ventaja del mapa mental es que no es estático. Puedes mover las ramas, reorganizar las ideas y añadir nueva información fácilmente a medida que surgen nuevas conexiones.</li>
+</ol>`
       },
       {
         id: 2,
-        titulo: 'Técnica de Cornell',
+        titulo: 'Flashcards Visuales',
         tipo: 'Visual',
-        descripcion: 'Sistema de toma de notas organizado en columnas para facilitar la revisión.',
-        detalles: 'Divide tu página en tres secciones: una columna angosta a la izquierda para palabras clave, una columna ancha a la derecha para notas detalladas, y un espacio al final para resumen. Durante la clase, toma notas en la columna derecha. Después, añade palabras clave en la izquierda y escribe un resumen al final. La organización visual te ayudará a recordar mejor.'
+        descripcion: 'Tarjetas de memoria con imágenes y colores para la memorización activa.',
+        detalles: `<h3>¿Qué son las Flashcards (Tarjetas de Memoria)?</h3>
+<p>Las flashcards, o tarjetas de memoria, son una herramienta de estudio diseñada para la memorización activa. Este método consiste en obligar al cerebro a recordar activamente una información, en lugar de simplemente reconocerla leyéndola.</p>
+
+<p>Su formato es simple y se basa en dos caras, ya sea en tarjetas físicas (papel) o en un formato digital:</p>
+<ul>
+<li><strong>Lado Anverso (Frontal):</strong> Presenta una pista, que puede ser una pregunta, un término o un concepto (ej. "¿Capital de Francia?").</li>
+<li><strong>Lado Reverso (Trasero):</strong> Contiene la respuesta o la definición (ej. "París").</li>
+</ul>
+
+<p>El componente "visual" de las flashcards modernas se refiere al enriquecimiento de estas tarjetas con elementos gráficos (no solo texto), lo cual es fundamental ya que el cerebro tiende a recordar mejor la información cuando está asociada a una imagen.</p>
+
+<div class="tecnica-imagen">
+<img src="assets/flashcard.jpg" alt="Ejemplo de Flashcards Visuales">
+</div>
+
+<h3>Cómo Crear Flashcards Visuales Efectivas</h3>
+
+<h4>1. Organiza tus Tarjetas</h4>
+<p>Antes de empezar, es crucial tener un sistema. La mejor manera es crear "mazos" (o grupos) separados para cada materia, tema o capítulo. Por ejemplo:</p>
+<ul>
+<li>Un mazo para "Anatomía - Huesos del Cráneo"</li>
+<li>Un mazo para "Química - Tabla Periódica"</li>
+<li>Un mazo para "Vocabulario de Inglés - Verbos"</li>
+</ul>
+<p>Esto evita que se mezcle la información y te permite estudiar temas específicos.</p>
+
+<h4>2. Sigue la Regla de Oro: "Mantenlo Simple"</h4>
+<p>Este es el paso más importante al añadir texto. La eficacia de una flashcard se pierde si está sobrecargada de información.</p>
+<ul>
+<li><strong>Una idea por tarjeta:</strong> Cada flashcard debe contener solo un dato o un concepto a la vez.</li>
+<li><strong>Divide los conceptos complejos:</strong> Si intentas memorizar una definición larga o un proceso de varios pasos, divide esa información en múltiples tarjetas más pequeñas y simples.</li>
+<li><strong>Entiende antes de memorizar:</strong> Asegúrate de comprender el concepto general antes de crear la tarjeta. Si no lo entiendes, solo estarás memorizando palabras sin contexto, lo cual es inútil.</li>
+</ul>
+
+<h4>3. Añade el Componente Visual (Clave para la Memoria)</h4>
+<p>Aquí es donde la flashcard cobra realmente poder. El componente visual ayuda a crear una "segunda pista" para el cerebro, haciendo que la información sea mucho más memorable.</p>
+<p>Hay varias formas de añadir elementos visuales:</p>
+<ul>
+<li><strong>Añadir imágenes:</strong> Busca y añade imágenes relevantes. Si estás estudiando anatomía, añade una foto del hueso. Si estudias vocabulario, añade una foto que represente la palabra.</li>
+<li><strong>Usar capturas de pantalla:</strong> Esta técnica es extremadamente útil para material que ya es visual. Puedes tomar capturas de pantalla de gráficos, tablas, o diagramas de tus libros de texto o presentaciones.</li>
+<li><strong>Dibujar tus propias ilustraciones:</strong> Si usas tarjetas digitales (o físicas), dibujar tus propios diagramas, esquemas o íconos simples es una forma muy poderosa de procesar la información, combinando el aprendizaje visual con el kinestésico.</li>
+</ul>`
       },
       {
         id: 3,
-        titulo: 'Flashcards Visuales',
+        titulo: 'Método Cornell',
         tipo: 'Visual',
-        descripcion: 'Tarjetas de estudio con imágenes, diagramas y esquemas de colores.',
-        detalles: 'Crea tarjetas con información importante, pero hazlas visualmente atractivas. En un lado coloca la pregunta o concepto con un color específico, y en el otro la respuesta con diagramas, dibujos o esquemas. Usa un color diferente para cada tema. Revísalas regularmente y organízalas por categorías visualmente distintas.'
-      },
-      {
-        id: 4,
-        titulo: 'Líneas de Tiempo',
-        tipo: 'Visual',
-        descripcion: 'Representa eventos cronológicamente con elementos visuales distintivos.',
-        detalles: 'Para estudiar historia o procesos secuenciales, crea líneas de tiempo coloridas. Usa una línea horizontal o vertical como eje principal y marca los eventos importantes con símbolos, colores e imágenes. Añade ilustraciones pequeñas que representen cada evento. La representación visual del tiempo te ayudará a recordar el orden y la relación entre eventos.'
+        descripcion: 'Sistema estructurado de toma de notas dividido en columnas para estudio activo.',
+        detalles: `<h3>¿Qué es el Método Cornell?</h3>
+<p>El Método Cornell es un sistema para tomar y organizar apuntes de forma activa. Fue creado en la década de 1940 por Walter Pauk, un profesor de la Universidad de Cornell, con el objetivo de ayudar a los estudiantes a procesar y retener la información de manera más eficiente.</p>
+
+<p>Su principal característica es la estructura visual de la página, que no solo sirve para registrar información, sino que también obliga al estudiante a sintetizar ideas, identificar conceptos clave y repasar activamente el material. Es un método que transforma la toma de apuntes de una tarea pasiva a un proceso de aprendizaje activo.</p>
+
+<div class="tecnica-imagen">
+<img src="assets/cornell.jpg" alt="Estructura del Método Cornell">
+</div>
+
+<h3>Cómo Aplicar el Método Cornell</h3>
+
+<h4>1. La Estructura de la Página</h4>
+<ol>
+<li><strong>Sección de Título (Parte Superior):</strong> Se traza una línea horizontal en la parte superior de la hoja. Este espacio se usa para identificar la materia, el tema de la clase y la fecha.</li>
+
+<li><strong>Columna de Pistas (Izquierda):</strong> Se traza una línea vertical a unos 6 cm del borde izquierdo, creando una columna estrecha. Esta columna se deja en blanco durante la clase.</li>
+
+<li><strong>Columna de Apuntes (Derecha):</strong> Es el área principal y más grande de la página, a la derecha de la línea vertical. Aquí es donde se toman los apuntes durante la clase o la lectura.</li>
+
+<li><strong>Sección de Resumen (Parte Inferior):</strong> Se traza una línea horizontal a unos 5 cm del final de la hoja, creando un "pie de página". Esta sección también se deja en blanco durante la clase.</li>
+</ol>
+
+<h4>2. El Proceso (Las 6 R)</h4>
+<p>El verdadero poder del método no está solo en el formato, sino en el proceso de 6 pasos que se aplica a esa estructura:</p>
+
+<ol>
+<li><strong>Registrar:</strong> Durante la clase, toma tus apuntes en la columna de la derecha (Columna de Apuntes). Intenta capturar las ideas principales, usando frases cortas, abreviaturas, símbolos, listas o pequeños esquemas.</li>
+
+<li><strong>Reducir (o Resumir):</strong> Poco después de la clase (el mismo día), revisa tus apuntes de la derecha. En la columna de la izquierda (Columna de Pistas), escribe las ideas clave, palabras clave, preguntas, o conceptos principales que resumen los apuntes de al lado.</li>
+
+<li><strong>Recitar:</strong> Este es un paso de estudio activo. Tapa la columna derecha (la de los apuntes) y, mirando solo las pistas de la columna izquierda, intenta explicar el concepto con tus propias palabras. Responde a las preguntas que formulaste. Esto revela lo que realmente has entendido y lo que necesitas repasar.</li>
+
+<li><strong>Reflexionar:</strong> Piensa en la información. Pregúntate cómo se conecta esto con lo que ya sabías, por qué es importante, o cómo se aplica. Añade estas reflexiones en la columna de pistas.</li>
+
+<li><strong>Recapitular (o Resumir):</strong> En la sección inferior (Sección de Resumen), escribe una o dos frases que sinteticen el contenido de toda la página. Hacer esto te fuerza a identificar la idea global del material.</li>
+
+<li><strong>Repasar:</strong> Realiza repasos breves y frecuentes (ej. 10 minutos cada día). Lee tus columnas de pistas y tus resúmenes para refrescar la memoria rápidamente. Gracias a este método, no necesitas releer todos tus apuntes, solo las ideas clave.</li>
+</ol>`
       }
     ],
     'Auditivo': [
       {
-        id: 5,
-        titulo: 'Grabaciones de Audio',
+        id: 4,
+        titulo: 'Tecnica X',
         tipo: 'Auditivo',
-        descripcion: 'Graba resúmenes hablados de tus notas y escúchalos repetidamente.',
-        detalles: 'Lee tus notas en voz alta y grábate. Organiza las grabaciones por tema y escúchalas mientras haces otras actividades como caminar o hacer ejercicio. Explica los conceptos como si le enseñaras a alguien más. Puedes crear diferentes versiones: una detallada para estudio profundo y otra resumida para repaso rápido. El ritmo y entonación te ayudarán a recordar.'
+        descripcion: 'wefgrthtgfbdfsdafsgfhnfgbdfvsdsfdg',
+        detalles: 'lorewefrefcdfvfbgfbgfbdfbxfbcbvcbgfbdfxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj'
+      },
+      {
+        id: 5,
+        titulo: 'Tecnica X',
+        tipo: 'Auditivo',
+        descripcion: 'wefgrthtgfbdfsdafsgfhnfgbdfvsdsfdg',
+        detalles: 'lorewefrefcdfvfbgfbgfbdfbxfbcbvcbgfbdfxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj'
       },
       {
         id: 6,
-        titulo: 'Grupos de Estudio',
+        titulo: 'Tecnica X',
         tipo: 'Auditivo',
-        descripcion: 'Discute y explica conceptos en voz alta con compañeros.',
-        detalles: 'Forma grupos pequeños de estudio donde cada persona explique un tema diferente. Haz preguntas, debate ideas y discute conceptos en voz alta. Escuchar diferentes perspectivas y explicaciones verbales fortalecerá tu comprensión. Graba las sesiones para escucharlas después. La discusión activa y el intercambio verbal son ideales para tu estilo de aprendizaje.'
+        descripcion: 'wefgrthtgfbdfsdafsgfhnfgbdfvsdsfdg',
+        detalles: 'lorewefrefcdfvfbgfbgfbdfbxfbcbvcbgfbdfxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj'
       },
       {
         id: 7,
-        titulo: 'Rimas y Canciones',
+        titulo: 'Tecnica X',
         tipo: 'Auditivo',
-        descripcion: 'Convierte información en rimas, canciones o poemas para memorizar.',
-        detalles: 'Transforma datos difíciles de memorizar en rimas, canciones o ritmos. Usa melodías conocidas y cambia la letra por la información que necesitas aprender. Crea acrónimos hablados o palabras que rimen con conceptos clave. El ritmo y la musicalidad harán que la información sea mucho más memorable. Practica recitando en voz alta con ritmo.'
-      },
-      {
-        id: 8,
-        titulo: 'Lectura en Voz Alta',
-        tipo: 'Auditivo',
-        descripcion: 'Lee textos importantes en voz alta con diferentes entonaciones.',
-        detalles: 'En lugar de leer en silencio, lee todo el material en voz alta. Varía tu tono, velocidad y énfasis según la importancia del contenido. Haz pausas dramáticas en puntos clave. Lee como si fueras un narrador profesional. Grábate leyendo para escucharlo después. Tu memoria auditiva capturará no solo las palabras, sino también la forma en que las pronunciaste.'
+        descripcion: 'wefgrthtgfbdfsdafsgfhnfgbdfvsdsfdg',
+        detalles: 'lorewefrefcdfvfbgfbgfbdfbxfbcbvcbgfbdfxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj'
       }
     ],
     'Kinestésico': [
       {
-        id: 9,
-        titulo: 'Estudio en Movimiento',
+        id: 8,
+        titulo: 'Tecnica X',
         tipo: 'Kinestésico',
-        descripcion: 'Estudia mientras caminas, haces ejercicio o realizas movimientos.',
-        detalles: 'No te quedes sentado mientras estudias. Camina por la habitación mientras lees tus notas en voz alta. Haz estiramientos entre sesiones de estudio. Asocia movimientos específicos con conceptos diferentes: por ejemplo, levantar el brazo derecho para un tema y el izquierdo para otro. El movimiento físico ayudará a tu cerebro a retener información.'
+        descripcion: 'wefgrthtgfbdfsdafsgfhnfgbdfvsdsfdg',
+        detalles: 'lorewefrefcdfvfbgfbgfbdfbxfbcbvcbgfbdfxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj'
       },
       {
-        id: 10,
-        titulo: 'Manipulación de Objetos',
+        id: 9,
+        titulo: 'Tecnica X',
         tipo: 'Kinestésico',
         descripcion: 'Usa objetos físicos, modelos o materiales manipulables para aprender.',
-        detalles: 'Crea modelos físicos de conceptos abstractos. Usa bloques, plastilina, o cualquier material que puedas tocar y manipular. Si estudias biología, construye modelos de células; si es matemáticas, usa objetos para representar problemas. Toca y mueve los objetos mientras explicas los conceptos. La experiencia táctil reforzará tu memoria.'
-      },
-      {
-        id: 11,
-        titulo: 'Dramatización',
-        tipo: 'Kinestésico',
-        descripcion: 'Representa físicamente conceptos o eventos históricos actuándolos.',
-        detalles: 'Convierte lo que estudias en una representación física. Si estudias historia, actúa los eventos. Si son procesos científicos, representa cada paso con tu cuerpo. Inventa gestos específicos para conceptos importantes. Usa todo tu cuerpo para expresar las ideas. Esta conexión entre movimiento y concepto hará que la información sea inolvidable.'
-      },
-      {
-        id: 12,
-        titulo: 'Experimentos Prácticos',
-        tipo: 'Kinestésico',
-        descripcion: 'Aprende haciendo: realiza experimentos, ejercicios y actividades prácticas.',
-        detalles: 'Busca la manera práctica de aplicar lo que estudias. Haz experimentos, resuelve problemas reales, construye proyectos. No solo leas sobre un concepto, practícalo. Si estudias idiomas, conversa; si es programación, escribe código; si es cocina, prepara los platillos. La experiencia directa y práctica es tu mejor herramienta de aprendizaje.'
+        detalles: 'lorewefrefcdfvfbgfbgfbdfbxfbcbvcbgfbdfxcjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj'
       }
     ]
   };
