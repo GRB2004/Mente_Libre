@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { EvaluacionService } from '../../services/evaluacion.service';
-import { Pregunta, TipoAprendizaje } from '../../models/interfaces';
+import { PreguntaHoneyAlonso } from '../../models/interfaces';
 
 @Component({
   selector: 'app-cuestionario',
@@ -14,9 +14,9 @@ import { Pregunta, TipoAprendizaje } from '../../models/interfaces';
   styleUrl: './cuestionario.component.scss'
 })
 export class CuestionarioComponent implements OnInit {
-  preguntas: Pregunta[] = [];
+  preguntas: PreguntaHoneyAlonso[] = [];
   preguntaActual: number = 0;
-  respuestaSeleccionada: TipoAprendizaje | null = null;
+  respuestaSeleccionada: boolean | null = null; // true = de acuerdo, false = en desacuerdo
 
   constructor(
     private evaluacionService: EvaluacionService,
@@ -27,15 +27,15 @@ export class CuestionarioComponent implements OnInit {
     this.preguntas = this.evaluacionService.getPreguntas();
   }
 
-  seleccionarRespuesta(tipo: TipoAprendizaje): void {
-    this.respuestaSeleccionada = tipo;
+  seleccionarRespuesta(deAcuerdo: boolean): void {
+    this.respuestaSeleccionada = deAcuerdo;
   }
 
   siguientePregunta(): void {
-    if (this.respuestaSeleccionada) {
+    if (this.respuestaSeleccionada !== null) {
       this.evaluacionService.guardarRespuesta({
-        preguntaId: this.preguntas[this.preguntaActual].id,
-        tipoSeleccionado: this.respuestaSeleccionada
+        preguntaNumero: this.preguntas[this.preguntaActual].numero,
+        deAcuerdo: this.respuestaSeleccionada
       });
 
       if (this.preguntaActual < this.preguntas.length - 1) {

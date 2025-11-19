@@ -1,36 +1,38 @@
 // src/app/models/interfaces.ts
 
-export interface Pregunta {
-  id: number;
+export type EstiloAprendizaje = 'Activo' | 'Reflexivo' | 'Teórico' | 'Pragmático';
+
+export interface PreguntaHoneyAlonso {
+  numero: number;
   texto: string;
-  opciones: Opcion[];
+  estilo: EstiloAprendizaje;
 }
 
-export interface Opcion {
-  texto: string;
-  tipo: TipoAprendizaje;
+export interface RespuestaHoneyAlonso {
+  preguntaNumero: number;
+  deAcuerdo: boolean; // true = más de acuerdo (+), false = más en desacuerdo (-)
 }
 
-export type TipoAprendizaje = 'Visual' | 'Auditivo' | 'Kinestésico';
-
-export interface Respuesta {
-  preguntaId: number;
-  tipoSeleccionado: TipoAprendizaje;
-}
-
-export interface ResultadoEvaluacion {
-  tipoPredominate: TipoAprendizaje;
+export interface ResultadoHoneyAlonso {
+  estiloPredominate: EstiloAprendizaje;
   puntajes: {
-    Visual: number;
-    Auditivo: number;
-    Kinestésico: number;
+    Activo: number;
+    Reflexivo: number;
+    Teórico: number;
+    Pragmático: number;
+  };
+  porcentajes: {
+    Activo: number;
+    Reflexivo: number;
+    Teórico: number;
+    Pragmático: number;
   };
 }
 
 export interface Tecnica {
   id: number;
   titulo: string;
+  estilo: EstiloAprendizaje;
   descripcion: string;
   detalles: string;
-  tipo: TipoAprendizaje;
 }

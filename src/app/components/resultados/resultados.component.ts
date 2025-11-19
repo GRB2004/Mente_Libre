@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { EvaluacionService } from '../../services/evaluacion.service';
-import { ResultadoEvaluacion, Tecnica, TipoAprendizaje } from '../../models/interfaces';
+import { ResultadoHoneyAlonso, Tecnica, EstiloAprendizaje } from '../../models/interfaces';
 
 @Component({
   selector: 'app-resultados',
@@ -14,14 +14,61 @@ import { ResultadoEvaluacion, Tecnica, TipoAprendizaje } from '../../models/inte
   styleUrl: './resultados.component.scss'
 })
 export class ResultadosComponent implements OnInit {
-  resultado: ResultadoEvaluacion | null = null;
+  resultado: ResultadoHoneyAlonso | null = null;
   tecnicas: Tecnica[] = [];
-  tipoSeleccionado: TipoAprendizaje = 'Visual';
+  estiloSeleccionado: EstiloAprendizaje = 'Activo';
 
-  descripcionesTipos: { [key in TipoAprendizaje]: string } = {
-    'Visual': 'Aprendes mejor cuando puedes ver la información. Prefieres gráficos, diagramas, imágenes y demostraciones visuales.',
-    'Auditivo': 'Aprendes mejor escuchando. Prefieres explicaciones verbales, discusiones, música y lectura en voz alta.',
-    'Kinestésico': 'Aprendes mejor haciendo. Prefieres la experiencia práctica, el movimiento y la manipulación de objetos.'
+  descripcionesEstilos: { [key in EstiloAprendizaje]: string } = {
+    'Activo': 'Las personas con predominancia en estilo Activo se implican plenamente y sin prejuicios en nuevas experiencias. Son de mente abierta, nada escépticos y acometen con entusiasmo las tareas nuevas. Piensan que al menos una vez hay que intentarlo todo. Sus días están llenos de actividad. Tan pronto como desciende la excitación de una novedad, comienzan a buscar la próxima.',
+
+    'Reflexivo': 'A los Reflexivos les gusta considerar las experiencias y observarlas desde diferentes perspectivas. Recogen datos, analizándolos con detenimiento antes de llegar a alguna conclusión. Son prudentes y consideran todas las alternativas antes de realizar un movimiento. Disfrutan observando la actuación de los demás, escuchan a los demás y no actúan hasta apropiarse de la situación.',
+
+    'Teórico': 'Los Teóricos adaptan e integran las observaciones dentro de teorías lógicas y complejas. Enfocan los problemas de forma vertical escalonada, por etapas lógicas. Tienden a ser perfeccionistas. Les gusta analizar y sintetizar. Son profundos en su sistema de pensamiento cuando establecen principios, teorías y modelos. Buscan la racionalidad y la objetividad huyendo de lo subjetivo y de lo ambiguo.',
+
+    'Pragmático': 'El punto fuerte de los Pragmáticos es la aplicación práctica de las ideas. Descubren el aspecto positivo de las nuevas ideas y aprovechan la primera oportunidad para experimentarlas. Les gusta actuar rápidamente y con seguridad con aquellas ideas y proyectos que les atraen. Tienden a ser impacientes cuando hay personas que teorizan. Son personas esencialmente realistas.'
+  };
+
+  caracteristicasEstilos: { [key in EstiloAprendizaje]: string[] } = {
+    'Activo': [
+      'Animador',
+      'Improvisador',
+      'Descubridor',
+      'Arriesgado',
+      'Espontáneo',
+      'Creativo',
+      'Aventurero',
+      'Renovador'
+    ],
+    'Reflexivo': [
+      'Ponderado',
+      'Concienzudo',
+      'Receptivo',
+      'Analítico',
+      'Exhaustivo',
+      'Observador',
+      'Paciente',
+      'Cuidadoso'
+    ],
+    'Teórico': [
+      'Metódico',
+      'Lógico',
+      'Objetivo',
+      'Crítico',
+      'Estructurado',
+      'Disciplinado',
+      'Sistemático',
+      'Ordenado'
+    ],
+    'Pragmático': [
+      'Experimentador',
+      'Práctico',
+      'Directo',
+      'Eficaz',
+      'Realista',
+      'Rápido',
+      'Decidido',
+      'Concreto'
+    ]
   };
 
   constructor(
@@ -37,34 +84,52 @@ export class ResultadosComponent implements OnInit {
       return;
     }
 
-    this.tipoSeleccionado = this.resultado.tipoPredominate;
-    this.tecnicas = this.evaluacionService.getTecnicasPorTipo(this.tipoSeleccionado);
+    this.estiloSeleccionado = this.resultado.estiloPredominate;
+    this.tecnicas = this.evaluacionService.getTecnicasPorEstilo(this.estiloSeleccionado);
   }
 
-  seleccionarTipo(tipo: TipoAprendizaje): void {
-    this.tipoSeleccionado = tipo;
-    this.tecnicas = this.evaluacionService.getTecnicasPorTipo(tipo);
+  seleccionarEstilo(estilo: EstiloAprendizaje): void {
+    this.estiloSeleccionado = estilo;
+    this.tecnicas = this.evaluacionService.getTecnicasPorEstilo(estilo);
   }
 
   verDetalleTecnica(tecnica: Tecnica): void {
-    this.router.navigate(['/tecnica', tecnica.tipo, tecnica.id]);
+    this.router.navigate(['/tecnica', tecnica.estilo, tecnica.id]);
   }
 
   volverInicio(): void {
+    this.evaluacionService.reiniciar();
     this.router.navigate(['/']);
   }
 
-  get tiposPorcentajes() {
+  get estilosPorcentajes() {
     if (!this.resultado) return [];
 
-    const total = this.resultado.puntajes.Visual +
-                  this.resultado.puntajes.Auditivo +
-                  this.resultado.puntajes.Kinestésico;
-
     return [
-      { tipo: 'Visual' as TipoAprendizaje, porcentaje: Math.round((this.resultado.puntajes.Visual / total) * 100) },
-      { tipo: 'Auditivo' as TipoAprendizaje, porcentaje: Math.round((this.resultado.puntajes.Auditivo / total) * 100) },
-      { tipo: 'Kinestésico' as TipoAprendizaje, porcentaje: Math.round((this.resultado.puntajes.Kinestésico / total) * 100) }
+      {
+        estilo: 'Activo' as EstiloAprendizaje,
+        puntaje: this.resultado.puntajes.Activo,
+        porcentaje: this.resultado.porcentajes.Activo
+      },
+      {
+        estilo: 'Reflexivo' as EstiloAprendizaje,
+        puntaje: this.resultado.puntajes.Reflexivo,
+        porcentaje: this.resultado.porcentajes.Reflexivo
+      },
+      {
+        estilo: 'Teórico' as EstiloAprendizaje,
+        puntaje: this.resultado.puntajes.Teórico,
+        porcentaje: this.resultado.porcentajes.Teórico
+      },
+      {
+        estilo: 'Pragmático' as EstiloAprendizaje,
+        puntaje: this.resultado.puntajes.Pragmático,
+        porcentaje: this.resultado.porcentajes.Pragmático
+      }
     ];
+  }
+
+  getCaracteristicas(): string[] {
+    return this.caracteristicasEstilos[this.estiloSeleccionado];
   }
 }

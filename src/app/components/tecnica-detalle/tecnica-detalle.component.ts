@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EvaluacionService } from '../../services/evaluacion.service';
-import { Tecnica, TipoAprendizaje } from '../../models/interfaces';
+import { Tecnica, EstiloAprendizaje } from '../../models/interfaces';
 
 @Component({
   selector: 'app-tecnica-detalle',
@@ -15,9 +15,9 @@ import { Tecnica, TipoAprendizaje } from '../../models/interfaces';
 })
 export class TecnicaDetalleComponent implements OnInit {
   tecnicaActual: Tecnica | null = null;
-  tecnicasTipo: Tecnica[] = [];
+  tecnicasEstilo: Tecnica[] = [];
   indiceActual: number = 0;
-  tipo: TipoAprendizaje = 'Visual';
+  estilo: EstiloAprendizaje = 'Activo';
 
   constructor(
     private route: ActivatedRoute,
@@ -27,14 +27,14 @@ export class TecnicaDetalleComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.tipo = params['tipo'] as TipoAprendizaje;
+      this.estilo = params['tipo'] as EstiloAprendizaje;
       const tecnicaId = Number(params['id']);
 
-      this.tecnicasTipo = this.evaluacionService.getTecnicasPorTipo(this.tipo);
-      this.indiceActual = this.tecnicasTipo.findIndex(t => t.id === tecnicaId);
+      this.tecnicasEstilo = this.evaluacionService.getTecnicasPorEstilo(this.estilo);
+      this.indiceActual = this.tecnicasEstilo.findIndex(t => t.id === tecnicaId);
 
       if (this.indiceActual !== -1) {
-        this.tecnicaActual = this.tecnicasTipo[this.indiceActual];
+        this.tecnicaActual = this.tecnicasEstilo[this.indiceActual];
       } else {
         this.router.navigate(['/resultados']);
       }
@@ -42,18 +42,18 @@ export class TecnicaDetalleComponent implements OnInit {
   }
 
   siguiente(): void {
-    if (this.indiceActual < this.tecnicasTipo.length - 1) {
+    if (this.indiceActual < this.tecnicasEstilo.length - 1) {
       this.indiceActual++;
-      this.tecnicaActual = this.tecnicasTipo[this.indiceActual];
-      this.router.navigate(['/tecnica', this.tipo, this.tecnicaActual.id]);
+      this.tecnicaActual = this.tecnicasEstilo[this.indiceActual];
+      this.router.navigate(['/tecnica', this.estilo, this.tecnicaActual!.id]);
     }
   }
 
   anterior(): void {
     if (this.indiceActual > 0) {
       this.indiceActual--;
-      this.tecnicaActual = this.tecnicasTipo[this.indiceActual];
-      this.router.navigate(['/tecnica', this.tipo, this.tecnicaActual.id]);
+      this.tecnicaActual = this.tecnicasEstilo[this.indiceActual];
+      this.router.navigate(['/tecnica', this.estilo, this.tecnicaActual!.id]);
     }
   }
 
@@ -62,10 +62,11 @@ export class TecnicaDetalleComponent implements OnInit {
   }
 
   volverInicio(): void {
+    this.evaluacionService.reiniciar();
     this.router.navigate(['/']);
   }
 
   get progreso(): number {
-    return ((this.indiceActual + 1) / this.tecnicasTipo.length) * 100;
+    return ((this.indiceActual + 1) / this.tecnicasEstilo.length) * 100;
   }
 }

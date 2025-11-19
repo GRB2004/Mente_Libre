@@ -11,6 +11,20 @@
   </header>
 
   <main class="main-content">
+    <!-- Instrucciones (solo en la primera pregunta) -->
+    <div class="instrucciones" *ngIf="preguntaActual === 0">
+      <h2>Cuestionario Honey-Alonso de Estilos de Aprendizaje</h2>
+      <ul>
+        <li>Este cuestionario ha sido diseñado para identificar tu estilo preferido de aprender.</li>
+        <li>No es un test de inteligencia, ni de personalidad.</li>
+        <li>No hay límite de tiempo para contestar el cuestionario.</li>
+        <li>No hay respuestas correctas o erróneas. Será útil en la medida que seas sincero/a en tus respuestas.</li>
+        <li>Si estás <strong>más de acuerdo</strong> que en desacuerdo con la afirmación, selecciona <strong>"Más de acuerdo"</strong>.</li>
+        <li>Si estás <strong>más en desacuerdo</strong> que de acuerdo, selecciona <strong>"Más en desacuerdo"</strong>.</li>
+        <li>Por favor contesta a todas las afirmaciones.</li>
+      </ul>
+    </div>
+
     <div class="progress-container">
       <div class="progress-bar">
         <div class="progress-fill" [style.width.%]="progreso"></div>
@@ -25,14 +39,23 @@
 
       <div class="opciones">
         <div
-          *ngFor="let opcion of preguntas[preguntaActual].opciones; let i = index"
           class="opcion"
-          [class.seleccionada]="respuestaSeleccionada === opcion.tipo"
-          (click)="seleccionarRespuesta(opcion.tipo)">
+          [class.seleccionada]="respuestaSeleccionada === true"
+          (click)="seleccionarRespuesta(true)">
           <div class="radio-button">
-            <div class="radio-inner" *ngIf="respuestaSeleccionada === opcion.tipo"></div>
+            <div class="radio-inner" *ngIf="respuestaSeleccionada === true"></div>
           </div>
-          <span class="opcion-texto">{{ opcion.texto }}</span>
+          <span class="opcion-texto">Más de acuerdo (+)</span>
+        </div>
+
+        <div
+          class="opcion"
+          [class.seleccionada]="respuestaSeleccionada === false"
+          (click)="seleccionarRespuesta(false)">
+          <div class="radio-button">
+            <div class="radio-inner" *ngIf="respuestaSeleccionada === false"></div>
+          </div>
+          <span class="opcion-texto">Más en desacuerdo (-)</span>
         </div>
       </div>
 
@@ -46,7 +69,7 @@
         <button
           class="btn-primario"
           (click)="siguientePregunta()"
-          [disabled]="!respuestaSeleccionada">
+          [disabled]="respuestaSeleccionada === null">
           {{ preguntaActual === preguntas.length - 1 ? 'Finalizar' : 'Siguiente' }}
         </button>
       </div>

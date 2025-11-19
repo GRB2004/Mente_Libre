@@ -11,34 +11,58 @@
   </header>
 
   <main class="main-content" *ngIf="resultado">
-    <h1 class="title">Una Mente Libre, una facultad de computación mas sana</h1>
+    <h1 class="title">Una Mente Libre, una facultad de computación más sana</h1>
 
     <div class="tabs">
       <button
-        *ngFor="let tipo of tiposPorcentajes"
+        *ngFor="let estilo of estilosPorcentajes"
         class="tab"
-        [class.active]="tipoSeleccionado === tipo.tipo"
-        (click)="seleccionarTipo(tipo.tipo)">
-        {{ tipo.tipo }}
+        [class.active]="estiloSeleccionado === estilo.estilo"
+        (click)="seleccionarEstilo(estilo.estilo)">
+        {{ estilo.estilo }}
       </button>
     </div>
 
     <div class="resultado-info">
-      <div class="tipo-predominante" *ngIf="tipoSeleccionado === resultado.tipoPredominate">
+      <div class="tipo-predominante" *ngIf="estiloSeleccionado === resultado.estiloPredominate">
         <span class="badge">Tu estilo predominante</span>
       </div>
-      <p class="descripcion">{{ descripcionesTipos[tipoSeleccionado] }}</p>
-      <div class="porcentajes">
-        <div *ngFor="let tipo of tiposPorcentajes" class="porcentaje-item">
-          <span class="tipo-label">{{ tipo.tipo }}</span>
-          <div class="porcentaje-bar">
-            <div class="porcentaje-fill" [style.width.%]="tipo.porcentaje"></div>
+
+      <h2 class="estilo-titulo">Estilo {{ estiloSeleccionado }}</h2>
+
+      <p class="descripcion">{{ descripcionesEstilos[estiloSeleccionado] }}</p>
+
+      <!-- Características principales -->
+      <div class="caracteristicas">
+        <h3 class="caracteristicas-titulo">Características principales:</h3>
+        <div class="caracteristicas-grid">
+          <span *ngFor="let caracteristica of getCaracteristicas()" class="caracteristica-tag">
+            {{ caracteristica }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Puntajes y porcentajes -->
+      <div class="puntajes-section">
+        <h3 class="puntajes-titulo">Tus puntajes</h3>
+        <div class="porcentajes">
+          <div *ngFor="let estilo of estilosPorcentajes" class="porcentaje-item">
+            <span class="tipo-label">{{ estilo.estilo }}</span>
+            <div class="porcentaje-bar">
+              <div
+                class="porcentaje-fill"
+                [style.width.%]="estilo.porcentaje"
+                [class.predominante]="estilo.estilo === resultado.estiloPredominate">
+              </div>
+            </div>
+            <span class="porcentaje-valor">{{ estilo.puntaje }}/20 ({{ estilo.porcentaje }}%)</span>
           </div>
-          <span class="porcentaje-valor">{{ tipo.porcentaje }}%</span>
         </div>
       </div>
     </div>
 
+    <!-- Técnicas de estudio recomendadas -->
+    <h2 class="tecnicas-titulo">Técnicas de Estudio Recomendadas</h2>
     <div class="tecnicas-grid">
       <div
         *ngFor="let tecnica of tecnicas"
@@ -75,6 +99,13 @@
         <h3 class="tecnica-titulo">{{ tecnica.titulo }}</h3>
         <p class="tecnica-descripcion">{{ tecnica.descripcion }}</p>
       </div>
+    </div>
+
+    <!-- Botón para reintentar -->
+    <div class="acciones">
+      <button class="btn-reintentar" (click)="volverInicio()">
+        Realizar otra evaluación
+      </button>
     </div>
   </main>
 </div>

@@ -17,20 +17,28 @@
 
     <h1 class="titulo-principal">{{ tecnicaActual.titulo }}</h1>
 
+    <!-- Badge del estilo de aprendizaje -->
+    <div class="estilo-badge-container">
+      <span class="estilo-badge">Estilo {{ estilo }}</span>
+    </div>
+
     <div class="contenido-wrapper">
       <div class="texto-contenido" [innerHTML]="tecnicaActual.detalles"></div>
     </div>
 
-    <div class="navegacion">
-      <h3 class="tecnica-label">Técnica</h3>
+    <div class="navegacion" *ngIf="tecnicasEstilo.length > 1">
+      <h3 class="tecnica-label">
+        Técnica {{ indiceActual + 1 }} de {{ tecnicasEstilo.length }}
+      </h3>
 
       <div class="progress-dots">
         <div
-          *ngFor="let tecnica of tecnicasTipo; let i = index"
+          *ngFor="let tecnica of tecnicasEstilo; let i = index"
           class="dot"
           [class.active]="i === indiceActual"
           [class.completed]="i < indiceActual"
-          (click)="indiceActual = i; tecnicaActual = tecnicasTipo[i]">
+          (click)="indiceActual = i; tecnicaActual = tecnicasEstilo[i]"
+          [title]="tecnica.titulo">
         </div>
       </div>
 
@@ -39,13 +47,13 @@
           class="btn-nav"
           (click)="anterior()"
           [disabled]="indiceActual === 0">
-          Atrás
+          ← Anterior
         </button>
         <button
           class="btn-nav btn-siguiente"
           (click)="siguiente()"
-          [disabled]="indiceActual === tecnicasTipo.length - 1">
-          Siguiente
+          [disabled]="indiceActual === tecnicasEstilo.length - 1">
+          Siguiente →
         </button>
       </div>
     </div>

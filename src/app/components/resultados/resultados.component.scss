@@ -2,8 +2,7 @@
 
 .resultados-container {
   min-height: 100vh;
-  //background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  background: linear-gradient(135deg, #ffffff 0%, #ffffff 0%);
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
   font-family: 'Crimson Text', serif;
 }
 
@@ -62,6 +61,7 @@
     justify-content: center;
     gap: 1rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 
     .tab {
       background: white;
@@ -93,12 +93,12 @@
   .resultado-info {
     background: white;
     border-radius: 15px;
-    padding: 2rem;
+    padding: 2.5rem;
     margin-bottom: 2rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
     .tipo-predominante {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
 
       .badge {
         display: inline-block;
@@ -111,57 +111,125 @@
       }
     }
 
-    .descripcion {
-      font-size: 1.2rem;
-      color: #4a5568;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
+    .estilo-titulo {
+      font-size: 2rem;
+      color: #2d5016;
+      font-weight: 600;
+      margin-bottom: 1rem;
     }
 
-    .porcentajes {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    .descripcion {
+      font-size: 1.15rem;
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      text-align: justify;
+    }
 
-      .porcentaje-item {
+    .caracteristicas {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: #f7fafc;
+      border-radius: 10px;
+
+      .caracteristicas-titulo {
+        font-size: 1.3rem;
+        color: #2d3748;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .caracteristicas-grid {
         display: flex;
-        align-items: center;
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 0.75rem;
 
-        .tipo-label {
-          min-width: 100px;
-          font-weight: 600;
-          color: #2d3748;
-        }
+        .caracteristica-tag {
+          background: white;
+          border: 2px solid #2d5016;
+          color: #2d5016;
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          font-size: 0.95rem;
+          font-weight: 500;
+          transition: all 0.3s ease;
 
-        .porcentaje-bar {
-          flex: 1;
-          height: 24px;
-          background: #e2e8f0;
-          border-radius: 12px;
-          overflow: hidden;
-
-          .porcentaje-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #2d5016, #4a7c2c);
-            transition: width 0.5s ease;
+          &:hover {
+            background: #2d5016;
+            color: white;
           }
-        }
-
-        .porcentaje-valor {
-          min-width: 50px;
-          text-align: right;
-          font-weight: 600;
-          color: #2d3748;
         }
       }
     }
+
+    .puntajes-section {
+      .puntajes-titulo {
+        font-size: 1.3rem;
+        color: #2d3748;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .porcentajes {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .porcentaje-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          .tipo-label {
+            min-width: 110px;
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.05rem;
+          }
+
+          .porcentaje-bar {
+            flex: 1;
+            height: 28px;
+            background: #e2e8f0;
+            border-radius: 14px;
+            overflow: hidden;
+
+            .porcentaje-fill {
+              height: 100%;
+              background: linear-gradient(90deg, #718096, #a0aec0);
+              transition: width 0.5s ease;
+
+              &.predominante {
+                background: linear-gradient(90deg, #2d5016, #4a7c2c);
+              }
+            }
+          }
+
+          .porcentaje-valor {
+            min-width: 110px;
+            text-align: right;
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .tecnicas-titulo {
+    font-size: 2rem;
+    color: #2d5016;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
   }
 
   .tecnicas-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
+    margin-bottom: 2rem;
 
     .tecnica-card {
       background: white;
@@ -205,6 +273,30 @@
       }
     }
   }
+
+  .acciones {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+
+    .btn-reintentar {
+      background: linear-gradient(135deg, #2d5016, #4a7c2c);
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-family: 'Crimson Text', serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(45, 80, 22, 0.3);
+      }
+    }
+  }
 }
 
 @media (max-width: 768px) {
@@ -215,16 +307,58 @@
   }
 
   .main-content {
+    padding: 1rem;
+
     .title {
       font-size: 1.8rem;
     }
 
     .tabs {
-      flex-wrap: wrap;
-
       .tab {
         flex: 1;
         min-width: 100px;
+        font-size: 0.95rem;
+        padding: 0.6rem 1rem;
+      }
+    }
+
+    .resultado-info {
+      padding: 1.5rem;
+
+      .estilo-titulo {
+        font-size: 1.5rem;
+      }
+
+      .descripcion {
+        font-size: 1rem;
+      }
+
+      .caracteristicas {
+        .caracteristicas-grid {
+          .caracteristica-tag {
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+          }
+        }
+      }
+
+      .puntajes-section {
+        .porcentajes {
+          .porcentaje-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+
+            .tipo-label,
+            .porcentaje-valor {
+              min-width: auto;
+            }
+
+            .porcentaje-bar {
+              width: 100%;
+            }
+          }
+        }
       }
     }
 
