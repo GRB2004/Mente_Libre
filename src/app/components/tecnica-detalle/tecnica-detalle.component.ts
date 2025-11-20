@@ -14,10 +14,11 @@ import { Tecnica, EstiloAprendizaje } from '../../models/interfaces';
   styleUrl: './tecnica-detalle.component.scss'
 })
 export class TecnicaDetalleComponent implements OnInit {
-  tecnicaActual: Tecnica | null = null;
+
+  estilo!: EstiloAprendizaje;
   tecnicasEstilo: Tecnica[] = [];
+  tecnicaActual!: Tecnica;
   indiceActual: number = 0;
-  estilo: EstiloAprendizaje = 'Activo';
 
   constructor(
     private route: ActivatedRoute,
@@ -41,19 +42,17 @@ export class TecnicaDetalleComponent implements OnInit {
     });
   }
 
-  siguiente(): void {
-    if (this.indiceActual < this.tecnicasEstilo.length - 1) {
-      this.indiceActual++;
-      this.tecnicaActual = this.tecnicasEstilo[this.indiceActual];
-      this.router.navigate(['/tecnica', this.estilo, this.tecnicaActual!.id]);
-    }
-  }
-
   anterior(): void {
     if (this.indiceActual > 0) {
       this.indiceActual--;
       this.tecnicaActual = this.tecnicasEstilo[this.indiceActual];
-      this.router.navigate(['/tecnica', this.estilo, this.tecnicaActual!.id]);
+    }
+  }
+
+  siguiente(): void {
+    if (this.indiceActual < this.tecnicasEstilo.length - 1) {
+      this.indiceActual++;
+      this.tecnicaActual = this.tecnicasEstilo[this.indiceActual];
     }
   }
 
@@ -62,8 +61,7 @@ export class TecnicaDetalleComponent implements OnInit {
   }
 
   volverInicio(): void {
-    this.evaluacionService.reiniciar();
-    this.router.navigate(['/']);
+    this.router.navigate(['/resultados']);
   }
 
   get progreso(): number {
