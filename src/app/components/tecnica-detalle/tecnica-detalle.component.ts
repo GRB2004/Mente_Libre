@@ -1,5 +1,3 @@
-// src/app/components/tecnica-detalle/tecnica-detalle.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,6 +18,12 @@ export class TecnicaDetalleComponent implements OnInit {
   tecnicaActual!: Tecnica;
   indiceActual: number = 0;
 
+  // Imagen actual de la técnica (puede ser null si no hay)
+  tecnicaActualImagen: string | null = null;
+
+  // Imagen en fullscreen (modal)
+  fullscreenImage: string | null = null;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -36,16 +40,24 @@ export class TecnicaDetalleComponent implements OnInit {
 
       if (this.indiceActual !== -1) {
         this.tecnicaActual = this.tecnicasEstilo[this.indiceActual];
+        this.tecnicaActualImagen = this.tecnicaActual.imagen ?? null;
       } else {
         this.router.navigate(['/resultados']);
       }
     });
   }
 
+  seleccionarTecnica(index: number): void {
+    this.indiceActual = index;
+    this.tecnicaActual = this.tecnicasEstilo[this.indiceActual];
+    this.tecnicaActualImagen = this.tecnicaActual.imagen ?? null;
+  }
+
   anterior(): void {
     if (this.indiceActual > 0) {
       this.indiceActual--;
       this.tecnicaActual = this.tecnicasEstilo[this.indiceActual];
+      this.tecnicaActualImagen = this.tecnicaActual.imagen ?? null;
     }
   }
 
@@ -53,6 +65,7 @@ export class TecnicaDetalleComponent implements OnInit {
     if (this.indiceActual < this.tecnicasEstilo.length - 1) {
       this.indiceActual++;
       this.tecnicaActual = this.tecnicasEstilo[this.indiceActual];
+      this.tecnicaActualImagen = this.tecnicaActual.imagen ?? null;
     }
   }
 
@@ -62,6 +75,14 @@ export class TecnicaDetalleComponent implements OnInit {
 
   volverInicio(): void {
     this.router.navigate(['/resultados']);
+  }
+
+  abrirImagenFullscreen(): void {
+    this.fullscreenImage = this.tecnicaActualImagen;
+  }
+
+  cerrarFullscreen(): void {
+    this.fullscreenImage = null;
   }
 
   get progreso(): number {

@@ -22,6 +22,11 @@
       <span class="estilo-badge">Estilo {{ estilo }}</span>
     </div>
 
+    <!-- Imagen de la técnica (fuera de innerHTML para aplicar estilos y fullscreen) -->
+    <div class="tecnica-imagen" *ngIf="tecnicaActualImagen">
+      <img [src]="tecnicaActualImagen" alt="Infografía de técnica" (click)="abrirImagenFullscreen()">
+    </div>
+
     <div class="contenido-wrapper">
       <div class="texto-contenido" [innerHTML]="tecnicaActual.detalles"></div>
     </div>
@@ -37,7 +42,7 @@
           class="dot"
           [class.active]="i === indiceActual"
           [class.completed]="i < indiceActual"
-          (click)="indiceActual = i; tecnicaActual = tecnicasEstilo[i]"
+          (click)="seleccionarTecnica(i)"
           [title]="tecnica.titulo">
         </div>
       </div>
@@ -58,4 +63,9 @@
       </div>
     </div>
   </main>
+</div>
+
+<!-- 🖼 Modal de imagen Full HD -->
+<div class="fullscreen-modal" *ngIf="fullscreenImage" (click)="cerrarFullscreen()">
+  <img [src]="fullscreenImage" alt="Imagen Fullscreen">
 </div>

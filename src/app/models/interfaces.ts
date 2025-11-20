@@ -35,4 +35,5 @@ export interface Tecnica {
   estilo: EstiloAprendizaje;
   descripcion: string;
   detalles: string;
+  imagen?: string;
 }
