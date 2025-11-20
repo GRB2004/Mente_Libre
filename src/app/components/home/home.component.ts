@@ -1,5 +1,6 @@
+// src/app/components/home/home.component.ts
+
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { EvaluacionService } from '../../services/evaluacion.service';
 import { ResultadoHoneyAlonso } from '../../models/interfaces';
@@ -7,20 +8,24 @@ import { ResultadoHoneyAlonso } from '../../models/interfaces';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-
   constructor(
     private router: Router,
     private evaluacionService: EvaluacionService
   ) {}
 
+  // 👉 ESTE sigue siendo el examen normal
   iniciarPrueba(): void {
+    this.evaluacionService.reiniciar();
+    this.router.navigate(['/cuestionario']);
+  }
 
-    // Guardar un resultado simulado COMPLETO
+  // 👉 ESTE SOLO ES PARA SALTAR DIRECTO A RESULTADOS CON DATOS SIMULADOS
+  saltarAMetodos(): void {
     this.evaluacionService['resultadoActual'] = {
       puntajes: {
         Activo: 18,
@@ -36,7 +41,6 @@ export class HomeComponent {
       }
     } as ResultadoHoneyAlonso;
 
-    // Ir directamente a Resultados
     this.router.navigate(['/resultados']);
   }
 }
